@@ -102,9 +102,8 @@ const moviesModule = {
     $("#movies").html(rendered);
     $(".card").click(function (e) {
       e.preventDefault();
-      eventsMediator.emit(
-        "movie.clicked",
-        moviesModule.chosenMovie(e.currentTarget.id)
+      eventsMediator.emit("movie.clicked", () =>
+        this.chosenMovie(e.currentTarget.id)
       );
     });
     // this.getData();
