@@ -100,9 +100,11 @@ const moviesModule = {
     // console.log(template);
     var rendered = Mustache.render(template, { results });
     $("#movies").html(rendered);
-    $(".card").click(function (e) {
-      e.preventDefault();
-      eventsMediator.emit("movie.clicked", () =>
+    $(".card").click((e) => {
+      console.log(this);
+      // e.preventDefault();
+      eventsMediator.emit(
+        "movie.clicked",
         this.chosenMovie(e.currentTarget.id)
       );
     });
